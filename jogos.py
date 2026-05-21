@@ -1,9 +1,17 @@
+def verificar_odds(jogos):
+    
+    valor_odd = float(input("Qual o valor da odd que você quer: "))
+    
+    for jogo in jogos:
+        if jogo["odd_casa"] <= valor_odd:
+            print("Radar:", jogo["casa"], "x", jogo["fora"], "-", jogo["odd_casa"])
+
 jogos = [
     {
         "casa": "Arsenal",
         "fora": "Chelsea",
         "liga": "Premier League",
-        "odd_casa": 1.75,
+        "odd_casa": 1.70,
         "status": "pré-live",
     },
     {
@@ -22,3 +30,5 @@ jogos = [
     },
 
 ]
+
+verificar_odds(jogos)
