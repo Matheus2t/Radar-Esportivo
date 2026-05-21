@@ -1,10 +1,13 @@
-def verificar_odds(jogos):
-    
-    valor_odd = float(input("Qual o valor da odd que você quer: "))
-    
+def verificar_odds(jogos, valor_odd):
+    encontrou = False
+
     for jogo in jogos:
         if jogo["odd_casa"] <= valor_odd:
-            print("Radar:", jogo["casa"], "x", jogo["fora"], "-", jogo["odd_casa"])
+            print("Radar:", jogo["casa"], "x", jogo["fora"], "-", jogo["odd_casa"])    
+            encotrou = True
+
+    if encontrou == False:
+        print("Não foi possível encontrar nenhum jogo nessa faixa de odd na nossa base!\n Digite outra odd")
 
 jogos = [
     {
@@ -31,4 +34,5 @@ jogos = [
 
 ]
 
-verificar_odds(jogos)
+valor_odd = float(input("Qual o valor da odd que você quer: "))
+verificar_odds(jogos, valor_odd)
