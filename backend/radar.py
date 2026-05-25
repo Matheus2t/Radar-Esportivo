@@ -1,22 +1,15 @@
-from jogos import jogos
-
 def verificar_odds(jogos, valor_odd, liga_escolhida, status_escolhido):
     alertas = []
 
     for jogo in jogos:
-        if jogo["odd_casa"] <= valor_odd and jogo["liga"].lower() == liga_escolhida.lower() and jogo["status"].lower() == status_escolhido.lower():            
+        if jogo["odd_casa"] <= valor_odd and jogo["liga"].lower() == liga_escolhida.lower() and jogo["status"].lower() == status_escolhido.lower():
             alertas.append(jogo)
-            
-    return alertas  
 
-valor_odd = float(input("Qual o valor da odd que você quer: "))
-liga_escolhida = input("Qual liga deseja escolher: ")
-status_escolhido = input("Qual status deseja filtrar: ")
+    return alertas
 
-alertas = verificar_odds(jogos, valor_odd, liga_escolhida, status_escolhido)
-
-if len(alertas) == 0:
-    print("Não foi encontrado nenhum jogo em nossa base de dados")
-else:
-    for alerta in alertas:
-        print("Radar:", alerta["casa"], "x", alerta["fora"], "-", alerta["odd_casa"])
+def listar_ligas(jogos):
+    
+    ligas = set()
+    for jogo in jogos:
+        ligas.add(jogo["liga"])
+    return ligas
