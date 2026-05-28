@@ -1,17 +1,17 @@
 from jogos import jogos
-from radar import verificar_odds
+from radar import verificar_odds, listar_ligas, listar_odd, listar_status
 
-
-
-
+print("Odds disponíveis:")
+for odd in listar_odd(jogos):
+    print("-", odd)
 valor_odd = float(input("Qual o valor da odd que você quer: "))
 print("Ligas disponíveis:")
-for jogo in jogos:
-    print("-", jogo["liga"])
+for liga in listar_ligas(jogos):
+    print("-", liga)
 liga_escolhida = input("Qual liga deseja escolher: ")
 print("Status disponíveis:")
-for jogo in jogos:
-    print("-", jogo["status"])
+for status in listar_status(jogos):
+    print("-", status)
 status_escolhido = input("Qual status deseja filtrar: ")
 
 alertas = verificar_odds(jogos, valor_odd, liga_escolhida, status_escolhido)
