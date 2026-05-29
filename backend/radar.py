@@ -12,18 +12,18 @@ def listar_ligas(jogos):
     ligas = set()
     for jogo in jogos:
         ligas.add(jogo["liga"])
-    return ligas
+    return sorted(ligas)
 
 def listar_odd(jogos):
     
     odds = set()
     for jogo in jogos:
         odds.add(jogo["odd_casa"])
-    return odds
+    return sorted(odds)
 
 def listar_status(jogos):
     
     status_disponiveis = set()
     for jogo in jogos:
         status_disponiveis.add(jogo["status"])
-    return status_disponiveis
+    return sorted(status_disponiveis)
