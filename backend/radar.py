@@ -2,7 +2,11 @@ def verificar_odds(jogos, valor_odd, liga_escolhida, status_escolhido):
     alertas = []
 
     for jogo in jogos:
-        if jogo["odd_casa"] <= valor_odd and jogo["liga"].lower() == liga_escolhida.lower() and jogo["status"].lower() == status_escolhido.lower():
+        odd_ok = jogo["odd_casa"] <= valor_odd 
+        liga_ok = jogo["liga"].lower() == liga_escolhida.lower() or liga_escolhida.lower() == "todos" 
+        status_ok = jogo["status"].lower() == status_escolhido.lower() or status_escolhido.lower() == "todos"
+        
+        if odd_ok and liga_ok and status_ok:
             alertas.append(jogo)
 
     return alertas
