@@ -15,10 +15,11 @@ for status in listar_status(jogos):
 status_escolhido = input("Qual status deseja filtrar: ")
 
 alertas = verificar_odds(jogos, valor_odd, liga_escolhida, status_escolhido)
+alertas_ordenados = sorted(alertas, key=lambda alerta: alerta["odd_casa"])
 
 if len(alertas) == 0:
     print("Não foi encontrado nenhum jogo em nossa base de dados, que possui", len(jogos), "jogos")
 else:
     print("Foram encontrados", len(alertas) , "jogos")
-    for alerta in alertas:
+    for alerta in alertas_ordenados:        
         print("Radar:", alerta["casa"], "x", alerta["fora"], "-", alerta["odd_casa"])
