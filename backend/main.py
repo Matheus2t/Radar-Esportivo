@@ -23,3 +23,15 @@ else:
     print("Foram encontrados", len(alertas) , "jogos")
     for alerta in alertas_ordenados:        
         print("Radar:", alerta["casa"], "x", alerta["fora"], "-", alerta["odd_casa"])
+        print("Classificação:")
+        print(alerta["casa"], "- Geral:", alerta["classificacao_casa"]["geral"])
+        print(alerta["casa"], "- Casa:", alerta["classificacao_casa"]["casa"])
+        print(alerta["casa"], "- Fora:", alerta["classificacao_casa"]["fora"])
+
+        print(alerta["fora"], "- Geral:", alerta["classificacao_fora"]["geral"])
+        print(alerta["fora"], "- Casa:", alerta["classificacao_fora"]["casa"])
+        print(alerta["fora"], "- Fora:", alerta["classificacao_fora"]["fora"])
+        if "h2h" in alerta:
+            print("H2H:")
+            for confronto in alerta["h2h"]:
+                print("-", confronto["casa"], confronto["placar"], confronto["fora"])
