@@ -5,6 +5,11 @@ jogos = [
         "liga": "Premier League",
         "odd_casa": 1.70,
         "status": "pré-live",
+        "h2h": [
+                {"casa": "Arsenal", "fora": "Chelsea", "placar": "4x0"},
+                {"casa": "Arsenal", "fora": "Chelsea", "placar": "3x0"},
+                {"casa": "Arsenal", "fora": "Chelsea", "placar": "1x1"},
+        ]
     },
     {
         "casa": "Palmeiras",
