@@ -22,6 +22,8 @@ if len(alertas) == 0:
 else:
     print("Foram encontrados", len(alertas) , "jogos")
     tipo_classificacao = input("Qual o tipo da classificação desejada? [geral], [casa], [fora], [todos]: ").lower()
+    if tipo_classificacao not in ["geral", "casa", "fora", "todos"]:
+        tipo_classificacao = "todos"
     for alerta in alertas_ordenados:        
         print("Radar:", alerta["casa"], "x", alerta["fora"], "-", alerta["odd_casa"])
         if tipo_classificacao == "geral":
