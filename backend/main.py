@@ -21,21 +21,25 @@ if len(alertas) == 0:
     print("Não foi encontrado nenhum jogo em nossa base de dados, que possui", len(jogos), "jogos")
 else:
     print("Foram encontrados", len(alertas) , "jogos")
-    tipo_classificacao = input("Qual o tipo da classificação desejada? [geral], [casa], [fora]")
+    tipo_classificacao = input("Qual o tipo da classificação desejada? [geral], [casa], [fora], [todos]: ").lower()
     for alerta in alertas_ordenados:        
         print("Radar:", alerta["casa"], "x", alerta["fora"], "-", alerta["odd_casa"])
         if tipo_classificacao == "geral":
             print(alerta["casa"], "- Geral:", alerta["classificacao_casa"]["geral"])
-        if tipo_classificacao == "casa":
-            print(alerta["casa"], "- Casa:", alerta["classificacao_casa"]["casa"])
-        if tipo_classificacao == "fora":
-            print(alerta["casa"], "- Fora:", alerta["classificacao_casa"]["fora"])
-        if tipo_classificacao == "geral":
             print(alerta["fora"], "- Geral:", alerta["classificacao_fora"]["geral"])
-        if tipo_classificacao == "casa":
+        elif tipo_classificacao == "casa":
+            print(alerta["casa"], "- Casa:", alerta["classificacao_casa"]["casa"])
             print(alerta["fora"], "- Casa:", alerta["classificacao_fora"]["casa"])
-        if tipo_classificacao == "fora":
+        elif tipo_classificacao == "fora":
+            print(alerta["casa"], "- Fora:", alerta["classificacao_casa"]["fora"])
             print(alerta["fora"], "- Fora:", alerta["classificacao_fora"]["fora"])
+        elif tipo_classificacao == "todos":
+            print(alerta["casa"], "- Geral:", alerta["classificacao_casa"]["geral"])
+            print(alerta["fora"], "- Geral:", alerta["classificacao_fora"]["geral"])      
+            print(alerta["casa"], "- Casa:", alerta["classificacao_casa"]["casa"])
+            print(alerta["fora"], "- Casa:", alerta["classificacao_fora"]["casa"])
+            print(alerta["casa"], "- Fora:", alerta["classificacao_casa"]["fora"])
+            print(alerta["fora"], "- Fora:", alerta["classificacao_fora"]["fora"])          
         if "h2h" in alerta:
             print("H2H:")
             for confronto in alerta["h2h"]:
