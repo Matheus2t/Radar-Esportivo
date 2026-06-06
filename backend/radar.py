@@ -31,3 +31,16 @@ def listar_status(jogos):
     for jogo in jogos:
         status_disponiveis.add(jogo["status"])
     return sorted(status_disponiveis)
+
+def contar_jogos_por_liga(jogos):
+    contagem = {}
+
+    for jogo in jogos:
+        liga = jogo["liga"]
+
+        if liga in contagem:
+            contagem[liga] += 1
+        else:
+            contagem[liga] = 1
+
+    return contagem
